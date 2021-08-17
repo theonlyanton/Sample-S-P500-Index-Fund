@@ -21,7 +21,7 @@ for symbol in stocks_table["Symbol"]:
   data = requests.get(api_url).json()
   stocks_dataframe = stocks_dataframe.append(pandas.Series([new_symbol, data["latestPrice"], data["marketCap"], "N/A"], index = stocks_columns), ignore_index = True)
   
-# generating 5 batch API calls
+# spliting the S&P500 list into 5 individual lists
 def split_list(list, number_per_group):
   for index in range(0, len(list), number_per_group):
     yield list[index : index + number_per_group]
@@ -34,6 +34,7 @@ for index in range(0, len(stock_symbols_groups)):
 
 batch_stocks_dataframe = pandas.DataFrame(columns = stocks_columns)
 
+# generating 5 batch API calls
 for symbol_string in stock_symbols_strings:
   new_symbol_string = symbol_string
   if(symbol == "BRK-B"):
