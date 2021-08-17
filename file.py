@@ -29,6 +29,7 @@ def split_list(list, number_per_group):
 stock_symbols_groups = list(split_list(stocks_table["Symbol"], 100))
 stock_symbols_strings = []
 
+# joining the split lists together into a string
 for index in range(0, len(stock_symbols_groups)):
   stock_symbols_strings.append(",".join(stock_symbols_groups[index]))
 
