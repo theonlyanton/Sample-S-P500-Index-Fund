@@ -1,7 +1,8 @@
 import requests 
 import pandas
 
-IEX_CLOUD_API_TOKEN = #enter your IEX Cloud API Sandbox token here
+#enter your IEX Cloud API Sandbox token here
+IEX_CLOUD_API_TOKEN = 
 
 page = pandas.read_html("https://en.wikipedia.org/wiki/List_of_S%26P_500_companies")
 stocks_table = page[0]
